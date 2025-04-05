@@ -1,6 +1,5 @@
 import React from "react";
 import { useCoAgent } from "@copilotkit/react-core"; 
-import { useStreamingContent } from "@/lib/hooks/useStreamingContent";
 // ...
  
 // Define the state of the agent, should match the state of the agent in your LangGraph.

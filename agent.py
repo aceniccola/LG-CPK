@@ -22,8 +22,6 @@ class Searches(TypedDict):
 
 class AgentState(CopilotKitState):
     searches: list[Searches] = []
- 
-class 
 
 async def chat_node(state: AgentState, config: RunnableConfig):
     state["searches"] = [

@@ -1,6 +1,5 @@
-// ...
 import React from "react";
-import { useCoAgentStateRender } from "@copilotkit/react-core";
+import { useCoAgent } from "@copilotkit/react-core"; 
 // ...
  
 // Define the state of the agent, should match the state of the agent in your LangGraph.
@@ -15,21 +14,23 @@ function YourMainContent() {
   // ... 
  
 
-  // styles omitted for brevity
-  useCoAgentStateRender<AgentState>({
+  const { state } = useCoAgent<AgentState>({
     name: "sample_agent", // the name the agent is served as
-    render: ({ state }) => (
-      <div>
-        {state.searches?.map((search, index) => (
-          <div key={index}>
-            {search.done ? "✅" : "❌"} {search.query}{search.done ? "" : "..."}
-          </div>
-        ))}
-      </div>
-    ),
-  });
+  })
  
   // ...
  
-  return <div>...</div>;
+  return (
+    <div>
+      {/* ... */}
+      <div className="flex flex-col gap-2 mt-4">
+
+        {state.searches?.map((search, index) => (
+          <div key={index} className="flex flex-row">
+            {search.done ? "✅" : "❌"} {search.query}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }

@@ -1,3 +1,5 @@
 UNUSED/
 .env
-
+lgcpk/
+node_modules/
+.cursorignore
